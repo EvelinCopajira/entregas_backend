@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Remera",
+    "description": "Remera escote en v",
+    "price": 500,
+    "thumbnail": "url",
+    "code": "rem01",
+    "stock": 3
+  },
+  {
+    "id": 2,
+    "title": "Pantalón largo",
+    "description": "Remera escote en v manga larga",
+    "price": 500,
+    "thumbnail": "url",
+    "code": "rem02",
+    "stock": 3
+  }
+]
