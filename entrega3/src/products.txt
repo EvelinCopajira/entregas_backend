@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "title": "Remera",
+    "description": "Remera escote en v",
+    "price": 500,
+    "thumbnail": "url",
+    "code": "rem01",
+    "stock": 3
+  },
+  {
+    "id": 2,
+    "title": "Remera manga larga",
+    "description": "Remera escote en v manga larga",
+    "price": 500,
+    "thumbnail": "url",
+    "code": "rem02",
+    "stock": 3
+  },
+  {
+    "id": 3,
+    "title": "Pantalón corto",
+    "description": "Short de jean tiro corto",
+    "price": 500,
+    "thumbnail": "url",
+    "code": "pan01",
+    "stock": 3
+  },
+  {
+    "id": 4,
+    "title": "Pantalón largo",
+    "description": "Pantalón largo negro",
+    "price": 500,
+    "thumbnail": "url",
+    "code": "pan02",
+    "stock": 3
+  },
+  {
+    "id": 5,
+    "title": "Camisa manga corta",
+    "description": "Camisa manga corta color negra",
+    "price": 500,
+    "thumbnail": "url",
+    "code": "cam01",
+    "stock": 3
+  },
+  {
+    "id": 6,
+    "title": "Camisa manga larga",
+    "description": "Camisa manga larga color blanco",
+    "price": 500,
+    "thumbnail": "url",
+    "code": "cam02",
+    "stock": 3
+  },
+  {
+    "id": 7,
+    "title": "Pollera larga",
+    "description": "Pollera tableada larga",
+    "price": 500,
+    "thumbnail": "url",
+    "code": "pol01",
+    "stock": 3
+  },
+  {
+    "id": 8,
+    "title": "Pollera corderoy",
+    "description": "Pollera larga corderoy",
+    "price": 500,
+    "thumbnail": "url",
+    "code": "pol02",
+    "stock": 3
+  },
+  {
+    "id": 9,
+    "title": "Buzo deportivo",
+    "description": "Buzo con capucha y cierre",
+    "price": 500,
+    "thumbnail": "url",
+    "code": "buz01",
+    "stock": 3
+  },
+  {
+    "id": 10,
+    "title": "Buzo lana",
+    "description": "Buzo de lana de alpaca",
+    "price": 500,
+    "thumbnail": "url",
+    "code": "buz02",
+    "stock": 3
+  }
+]
