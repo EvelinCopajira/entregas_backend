@@ -169,22 +169,6 @@ async function main() {
     3
   );
 
-  //READ
-  //ALL
-  //let allProducts = await productManager.getProducts();
-  //console.log(allProducts);
-
-  //BY ID
-/*   let productById = await productManager.getProductById();
-  if (productById != undefined) {
-    console.log(`El producto con el id ${productById.id} es:`, productById);
-  } */
-
-  //UPDATE
-  //allProducts = await productManager.updateProductById(1);
-
-  //DELETE BY ID
-  //allProducts = await productManager.deleteProduct(1);
 }
 
 main();
