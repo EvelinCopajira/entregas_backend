@@ -18,7 +18,7 @@ class ProductManager {
     }
   };
 
-  addProduct = (title, description, price, thumbnail, code, stock) => {
+  addProduct = async (title, description, price, thumbnail, code, stock) => {
     const id = this.idGenerator();
     //Valido que estén completos todos los datos
     if (!title || !description || !price || !thumbnail || !code || !stock) {
@@ -43,23 +43,23 @@ class ProductManager {
       code,
       stock,
     });
-    fs.writeFileSync(this.filename, JSON.stringify(products, null, 2));
+    await fs.promises.writeFile(this.filename, JSON.stringify(products, null, 2));
   };
 
-  getProducts = () => {
-    let allProducts = fs.readFileSync("src/products.txt", "utf-8");
+  getProducts = async () => {
+    let allProducts = await fs.promises.readFile("src/products.txt", "utf-8");
     return JSON.parse(allProducts);
   };
 
-  getProductById = (id) => {
-    let allProducts = fs.readFileSync("src/products.txt", "utf-8");
+  getProductById = async (id) => {
+    let allProducts = await fs.promises.readFile("src/products.txt", "utf-8");
     products = JSON.parse(allProducts);
     let filteredProduct = products.filter((elem) => elem.id == id);
     return filteredProduct[0];
   };
 
-  updateProductById = (id) => {
-    let allProducts = fs.readFileSync("src/products.txt", "utf-8");
+  updateProductById = async (id) => {
+    let allProducts = await fs.promises.readFile("src/products.txt", "utf-8");
     let products = JSON.parse(allProducts);
 
     let filteredProduct = products.filter((elem) => elem.id === id);
@@ -68,10 +68,10 @@ class ProductManager {
     }
     products[1].title = "Pantalón largo";
     console.log(products);
-    fs.writeFileSync(this.filename, JSON.stringify(products, null, 2));
+    await fs.promises.writeFile(this.filename, JSON.stringify(products, null, 2));
   };
 
-  deleteProduct = (id) => {
+  deleteProduct = async (id) => {
     let allProducts = fs.readFileSync("src/products.txt", "utf-8");
     products = JSON.parse(allProducts);
 
@@ -80,7 +80,7 @@ class ProductManager {
       console.error(`Not found`);
     }
 
-    fs.writeFileSync(this.filename, JSON.stringify(restOfProducts, null, 2));
+    await fs.promises.writeFile(this.filename, JSON.stringify(restOfProducts, null, 2));
   };
 }
 
