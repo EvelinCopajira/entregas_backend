@@ -43,7 +43,14 @@ router.post("/", async (req, res) => {
 });
 
 //ENPOINT - put
-router.put("/:pid", (req, res) => {
+router.put("/:pid", async (req, res) => {
+  const { pid } = req.params;
+  const updateProduct = await products.updateProductById(pid, req.body);
+  if (!updateProduct) {
+    res.status(404).json({ error: "No se encuentra el producto" });
+  }
+  res.status(200).json({ product_put_id: updateProduct });
+
   //actualizar todos los campos, menos el id y el status
 });
 
