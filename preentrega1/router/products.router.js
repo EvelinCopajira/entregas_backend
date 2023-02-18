@@ -61,7 +61,7 @@ router.delete("/:pid", async (req, res) => {
   if (!productPid) {
     res.status(404).json({ error: "No se existe el producto" });
   }
-  res.status(200).json({ rest_products: products });
+  res.status(200).json({ message: 'Producto eliminado' });
 });
 
 module.exports = router;

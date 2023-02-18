@@ -122,11 +122,11 @@ class ProductManager {
     return filteredProduct[0];
   };
 
-  /*   deleteProduct = async (id) => {
-    let allProducts = fs.readFileSync("./dataBase/products.json", "utf-8");
-    products = JSON.parse(allProducts);
+  deleteProduct = async (id) => {
+    //Obtengo los productos que existen con .getProducts
+    const allProducts = await this.getProducts();
 
-    let restOfProducts = products.filter((elemento) => elemento.id !== id);
+    const restOfProducts = allProducts.filter((elemento) => elemento.id != id);
     if (restOfProducts.length === allProducts.length) {
       console.error(`Not found`);
     }
@@ -135,7 +135,7 @@ class ProductManager {
       this.filename,
       JSON.stringify(restOfProducts, null, 2)
     );
-  }; */
+  };
 }
 
 module.exports = ProductManager;

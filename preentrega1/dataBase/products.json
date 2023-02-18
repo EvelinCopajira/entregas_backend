@@ -2,27 +2,16 @@
   {
     "id": 1,
     "status": true,
-    "title": "Remera",
-    "description": "Remera manga corta esconte en V",
-    "code": "rem01",
-    "price": 500,
-    "stock": 3,
-    "category": "Ropa",
-    "thumbnail": "url"
-  },
-  {
-    "id": 2,
-    "status": true,
     "title": "Remera Manga larga verde",
     "description": "Remera manga larga esconte en V color verde",
-    "code": "rem12",
+    "code": "rem10",
     "price": 3500,
     "stock": 3,
     "category": "Ropa",
     "thumbnail": "url"
   },
   {
-    "id": 3,
+    "id": 2,
     "status": true,
     "title": "Pantalón largo",
     "description": "Pantalón de jean",
