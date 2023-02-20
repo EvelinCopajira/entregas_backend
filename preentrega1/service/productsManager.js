@@ -33,44 +33,36 @@ class ProductManager {
     //Verifico si existe
     //Obtengo los productos que existen con .getProducts
     const allProducts = await this.getProducts();
-    //.filter para identificar el id del producto que recibo
-    const filteredProduct = allProducts.filter(
-      (elem) => elem.id == newProduct.id
-    );
+    //Desestructuro el nuevo objeeto
+    const { title, description, code, price, stock, category, thumbnail } =
+      newProduct;
 
-    //Valido que el producto no exista
-    if (filteredProduct.length == 0) {
-      //Desestructuro el nuevo objeeto
-      const { title, description, code, price, stock, category, thumbnail } =
-        newProduct;
-
-      //Valido que estén completos todos los datos
-      if (!title || !description || !code || !price || !stock || !category) {
-        console.error(
-          `No se puede agregar el producto ${title} porque faltan datos `
-        );
-        return;
-      }
-      //Valido que el código no se repita entre productos
-      if (allProducts.find((elem) => elem.code === newProduct.code)) {
-        console.error(
-          `No pudo agregarse el producto: "${title}" con el código "${code}" porque ya exite otro producto con el mismo código`
-        );
-        return;
-      }
-      //Le asigno a status un true (no modificables) y genero el ID incremental
-      const status = true;
-      const newId =
-        allProducts.length == 0
-          ? 1
-          : allProducts[allProducts.length - 1].id + 1;
-
-      //Le agrego el id y el status al producto
-      newProduct = { id: newId, status: status, ...newProduct };
-
-      //.push al array
-      allProducts.push(newProduct);
+    //Valido que estén completos todos los datos
+    if (!title || !description || !code || !price || !stock || !category) {
+      console.error(
+        `No se puede agregar el producto ${title} porque faltan datos `
+      );
+      return undefined;
     }
+    //Valido que el código no se repita entre productos
+    if (allProducts.find((elem) => elem.code === newProduct.code)) {
+      console.error(
+        `No pudo agregarse el producto: "${title}" con el código "${code}" porque ya exite otro producto con el mismo código`
+      );
+      return undefined;
+    }
+
+    //Le asigno a status un true (no modificables) y genero el ID incremental
+    const status = true;
+    const newId =
+      allProducts.length == 0 ? 1 : allProducts[allProducts.length - 1].id + 1;
+
+    //Le agrego el id y el status al producto
+    newProduct = { id: newId, status: status, ...newProduct };
+
+    //.push al array
+    allProducts.push(newProduct);
+
     //Escribir/guardar el nuevo [] con el producto agregado/modificado
     await fs.promises.writeFile(
       this.filename,
@@ -86,6 +78,7 @@ class ProductManager {
     const filteredProduct = allProducts.filter((elem) => elem.id == id);
     if (filteredProduct.length == 0) {
       console.error(`Not found`);
+      return undefined;
     }
     //Desestructuro el objeto a modificar
     const { title, description, code, price, stock, category, thumbnail } =
@@ -96,14 +89,14 @@ class ProductManager {
       console.error(
         `No se puede agregar el producto ${title} porque faltan datos `
       );
-      return;
+      return undefined;
     }
     //Valido que el código no se repita entre productos
     if (allProducts.find((elem) => elem.code == updateProduct.code)) {
       console.error(
         `No pudo agregarse el producto: "${title}" con el código "${code}" porque ya exite otro producto con el mismo código`
       );
-      return;
+      return undefined;
     }
     //Piso los valores del producto filtrado por los que estoy ingresando
     filteredProduct[0].title = updateProduct.title;
@@ -127,8 +120,10 @@ class ProductManager {
     const allProducts = await this.getProducts();
 
     const restOfProducts = allProducts.filter((elemento) => elemento.id != id);
-    if (restOfProducts.length === allProducts.length) {
+    
+    if (restOfProducts.length == allProducts.length) {
       console.error(`Not found`);
+      return;
     }
 
     await fs.promises.writeFile(
